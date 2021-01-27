@@ -173,7 +173,7 @@ matrix:
         - MATRIX_EVAL="CC=gcc && CXX=g++"
       before_script:
         - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
-   - os: linux
+    - os: linux
       arch: ppc64le
       dist: xenial
       addons:
