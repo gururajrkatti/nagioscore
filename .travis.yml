@@ -172,12 +172,155 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc && CXX=g++"
       before_script:
-        - sed 's/ppc64/ppc64le/g' tap/config.guess > tap/config.guess  # To fix the configure error wrt new platform
-        - sed 's/powerpc64/powerpc64le/g' tap/config.guess > tap/config.guess
-        - cp config.guess tap/config.guess
-        - grep pc64 tap/config.guess
+        - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
+   - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - apache2
+            - build-essential
+            - gcovr
+            - gperf
+            - g++-5
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+      before_script:
+        - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
 
 
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - apache2
+            - build-essential
+            - gcovr
+            - gperf
+            - g++-6
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+      before_script:
+       - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
+
+
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - apache2
+            - build-essential
+            - gcovr
+            - gperf
+            - g++-7
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      before_script:
+        - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
+
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - apache2
+            - build-essential
+            - gcovr
+            - gperf
+            - g++-8
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=gcc-8 && CXX=g++-8"
+      before_script:
+       - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
+
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - apache2
+            - build-essential
+            - clang-5.0
+            - gcovr
+            - gperf
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0"
+      before_script:
+       - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
+
+
+    - os: linux
+      arch: ppc64le
+      dist: xenial
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-6.0
+            - ubuntu-toolchain-r-test
+          packages:
+            - apache2
+            - build-essential
+            - clang-6.0
+            - gcovr
+            - gperf
+            - g++-4.9
+            - lcov
+            - libgd-dev
+            - php
+            - php-gd
+            - unzip
+            - valgrind
+      env:
+        - MATRIX_EVAL="CC=clang-6.0 && CXX=clang++-6.0"
+      before_script:
+       - cp config.guess tap/config.guess  # To fix the configure error wrt new platform
  
 
 before_install:
